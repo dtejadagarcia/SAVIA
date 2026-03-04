@@ -1,407 +1,775 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SAVIA – Ecosistema de Analítica e Inteligencia Artificial de Ecopetrol. Explora cómo la inteligencia fluye y genera valor." />
-  <meta name="theme-color" content="#0d0d1a" />
-  <title>SAVIA · Ecosistema Ecopetrol</title>
-
-  <!-- Preconnect fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js" defer></script>
-
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/animations.css" />
-  <link rel="stylesheet" href="styles/responsive.css" />
-</head>
-<body>
-
-  <!-- ═══════════════════════════════════════════
-       PANTALLA 1: INTRO / SPLASH
-  ═══════════════════════════════════════════ -->
-  <section id="screen-intro" class="screen screen-active" role="main" aria-label="Pantalla de bienvenida SAVIA">
-
-    <!-- Fondo con líneas verticales sutiles -->
-    <div class="bg-grid" aria-hidden="true"></div>
-
-    <!-- Partículas flotantes -->
-    <canvas id="particles-canvas" aria-hidden="true"></canvas>
-
-    <!-- Contenido central -->
-    <div class="intro-content">
-
-      <!-- Badge corporativo -->
-      <div class="badge-ecopetrol" aria-label="Ecopetrol">
-        <span class="badge-dot"></span>
-        <span>Ecopetrol · VTI</span>
-      </div>
-
-      <!-- Logo SAVIA con efecto luminoso -->
-      <div class="savia-logo-wrapper" aria-label="SAVIA">
-        <div class="savia-glow-ring" aria-hidden="true"></div>
-        <h1 class="savia-title">
-          <span class="savia-letter" style="--i:0">S</span><span
-            class="savia-letter" style="--i:1">A</span><span
-            class="savia-letter" style="--i:2">V</span><span
-            class="savia-letter" style="--i:3">I</span><span
-            class="savia-letter" style="--i:4">A</span>
-        </h1>
-        <div class="savia-underline" aria-hidden="true"></div>
-      </div>
-
-      <!-- Tagline -->
-      <p class="intro-tagline">
-        Sembramos decisiones con <em>Analítica</em> e <em>Inteligencia Artificial</em>
-      </p>
-
-      <!-- Árbol preview animado en intro -->
-      <div class="intro-tree-container" aria-hidden="true">
-        <div class="tree-preview-wrapper">
-          <!-- SVG del árbol SAVIA oficial representado como SVG inline -->
-          <svg id="intro-tree-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Árbol SAVIA Ecopetrol">
-            <!-- RAÍCES -->
-            <g id="svg-roots" class="tree-part">
-              <ellipse cx="200" cy="490" rx="130" ry="22" fill="none" stroke="#3B2677" stroke-width="1.5" opacity="0.3"/>
-              <line x1="200" y1="470" x2="120" y2="495" stroke="#3B2677" stroke-width="3" stroke-linecap="round"/>
-              <line x1="200" y1="470" x2="160" y2="498" stroke="#3B2677" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="200" y1="470" x2="200" y2="500" stroke="#3B2677" stroke-width="4" stroke-linecap="round"/>
-              <line x1="200" y1="470" x2="240" y2="498" stroke="#3B2677" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="200" y1="470" x2="280" y2="495" stroke="#3B2677" stroke-width="3" stroke-linecap="round"/>
-              <line x1="120" y1="495" x2="90" y2="510" stroke="#3B2677" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="120" y1="495" x2="110" y2="512" stroke="#3B2677" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="280" y1="495" x2="300" y2="510" stroke="#3B2677" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="280" y1="495" x2="290" y2="512" stroke="#3B2677" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Label raíces -->
-              <text x="200" y="518" text-anchor="middle" fill="#3B2677" font-size="9" font-family="Inter" font-weight="600" opacity="0.7">GOBIERNO · RAÍCES</text>
-            </g>
-
-            <!-- TRONCO -->
-            <g id="svg-trunk" class="tree-part">
-              <rect x="176" y="290" width="48" height="185" rx="10" fill="url(#trunkGrad)" opacity="0.95"/>
-              <!-- Líneas internas del tronco (áreas VTI) -->
-              <line x1="188" y1="300" x2="188" y2="465" stroke="#14DC80" stroke-width="0.8" opacity="0.4"/>
-              <line x1="200" y1="295" x2="200" y2="468" stroke="#14DC80" stroke-width="1.2" opacity="0.6"/>
-              <line x1="212" y1="300" x2="212" y2="465" stroke="#14DC80" stroke-width="0.8" opacity="0.4"/>
-              <!-- Label tronco -->
-              <text x="200" y="385" text-anchor="middle" fill="white" font-size="7" font-family="Inter" font-weight="700" transform="rotate(-90 200 385)">TRONCO · VTI</text>
-            </g>
-
-            <!-- COPA / FOLLAJE -->
-            <g id="svg-canopy" class="tree-part">
-              <!-- Capa inferior copa -->
-              <ellipse cx="200" cy="235" rx="115" ry="70" fill="url(#canopyGrad1)" opacity="0.9"/>
-              <!-- Capa media copa -->
-              <ellipse cx="200" cy="190" rx="95" ry="65" fill="url(#canopyGrad2)" opacity="0.9"/>
-              <!-- Capa superior copa -->
-              <ellipse cx="200" cy="148" rx="72" ry="55" fill="url(#canopyGrad3)" opacity="0.95"/>
-              <!-- Cima -->
-              <ellipse cx="200" cy="108" rx="45" ry="38" fill="url(#canopyGrad4)" opacity="1"/>
-            </g>
-
-            <!-- RAMAS (Hubs y áreas) -->
-            <g id="svg-branches" class="tree-part">
-              <!-- Rama izquierda principal -->
-              <path d="M 185 290 Q 140 270 100 240" stroke="#2a5c3a" stroke-width="8" fill="none" stroke-linecap="round"/>
-              <path d="M 100 240 Q 70 215 55 185" stroke="#2a5c3a" stroke-width="5" fill="none" stroke-linecap="round"/>
-              <!-- Rama derecha principal -->
-              <path d="M 215 290 Q 260 270 300 240" stroke="#2a5c3a" stroke-width="8" fill="none" stroke-linecap="round"/>
-              <path d="M 300 240 Q 330 215 345 185" stroke="#2a5c3a" stroke-width="5" fill="none" stroke-linecap="round"/>
-              <!-- Sub-ramas izquierda -->
-              <path d="M 130 258 Q 105 235 85 210" stroke="#2a5c3a" stroke-width="4" fill="none" stroke-linecap="round"/>
-              <!-- Sub-ramas derecha -->
-              <path d="M 270 258 Q 295 235 315 210" stroke="#2a5c3a" stroke-width="4" fill="none" stroke-linecap="round"/>
-            </g>
-
-            <!-- HOJAS (Datos) -->
-            <g id="svg-leaves" class="tree-part">
-              <ellipse cx="58" cy="178" rx="18" ry="12" fill="#14DC80" opacity="0.85" transform="rotate(-20 58 178)"/>
-              <ellipse cx="42" cy="165" rx="14" ry="9" fill="#0fbb6e" opacity="0.75" transform="rotate(15 42 165)"/>
-              <ellipse cx="72" cy="162" rx="15" ry="10" fill="#14DC80" opacity="0.8" transform="rotate(-35 72 162)"/>
-              <ellipse cx="345" cy="178" rx="18" ry="12" fill="#14DC80" opacity="0.85" transform="rotate(20 345 178)"/>
-              <ellipse cx="360" cy="163" rx="14" ry="9" fill="#0fbb6e" opacity="0.75" transform="rotate(-15 360 163)"/>
-              <ellipse cx="331" cy="162" rx="15" ry="10" fill="#14DC80" opacity="0.8" transform="rotate(35 331 162)"/>
-              <!-- Hojas copa -->
-              <ellipse cx="155" cy="240" rx="16" ry="10" fill="#14DC80" opacity="0.7" transform="rotate(-25 155 240)"/>
-              <ellipse cx="245" cy="240" rx="16" ry="10" fill="#14DC80" opacity="0.7" transform="rotate(25 245 240)"/>
-              <ellipse cx="135" cy="200" rx="14" ry="9" fill="#0fbb6e" opacity="0.75" transform="rotate(-40 135 200)"/>
-              <ellipse cx="265" cy="200" rx="14" ry="9" fill="#0fbb6e" opacity="0.75" transform="rotate(40 265 200)"/>
-              <!-- Hojas cima -->
-              <ellipse cx="165" cy="105" rx="15" ry="9" fill="#14DC80" opacity="0.8" transform="rotate(-30 165 105)"/>
-              <ellipse cx="235" cy="105" rx="15" ry="9" fill="#14DC80" opacity="0.8" transform="rotate(30 235 105)"/>
-              <ellipse cx="200" cy="78" rx="13" ry="8" fill="#14DC80" opacity="0.9" transform="rotate(5 200 78)"/>
-            </g>
-
-            <!-- FLORES (Soluciones digitales) -->
-            <g id="svg-flowers" class="tree-part">
-              <!-- Flor 1 -->
-              <g transform="translate(88, 205)">
-                <circle cx="0" cy="0" r="6" fill="#c084fc" opacity="0.9"/>
-                <circle cx="0" cy="-9" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="8" cy="-5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="8" cy="5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="0" cy="9" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="-8" cy="5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="-8" cy="-5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="0" cy="0" r="3" fill="white" opacity="0.9"/>
-              </g>
-              <!-- Flor 2 -->
-              <g transform="translate(312, 205)">
-                <circle cx="0" cy="0" r="6" fill="#c084fc" opacity="0.9"/>
-                <circle cx="0" cy="-9" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="8" cy="-5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="8" cy="5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="0" cy="9" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="-8" cy="5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="-8" cy="-5" r="3.5" fill="#a855f7" opacity="0.8"/>
-                <circle cx="0" cy="0" r="3" fill="white" opacity="0.9"/>
-              </g>
-              <!-- Flor 3 (superior) -->
-              <g transform="translate(200, 75)">
-                <circle cx="0" cy="0" r="5" fill="#c084fc" opacity="0.9"/>
-                <circle cx="0" cy="-8" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="7" cy="-4" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="7" cy="4" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="0" cy="8" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="-7" cy="4" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="-7" cy="-4" r="3" fill="#a855f7" opacity="0.8"/>
-                <circle cx="0" cy="0" r="2.5" fill="white" opacity="0.9"/>
-              </g>
-            </g>
-
-            <!-- FRUTOS (Decisiones) -->
-            <g id="svg-fruits" class="tree-part">
-              <ellipse cx="155" cy="170" rx="10" ry="13" fill="#f59e0b" opacity="0.9"/>
-              <ellipse cx="245" cy="170" rx="10" ry="13" fill="#f59e0b" opacity="0.9"/>
-              <ellipse cx="200" cy="140" rx="9" ry="12" fill="#f59e0b" opacity="0.95"/>
-              <ellipse cx="175" cy="215" rx="8" ry="11" fill="#fb923c" opacity="0.85"/>
-              <ellipse cx="225" cy="215" rx="8" ry="11" fill="#fb923c" opacity="0.85"/>
-              <!-- Brillo frutos -->
-              <ellipse cx="152" cy="165" rx="3" ry="4" fill="white" opacity="0.4"/>
-              <ellipse cx="242" cy="165" rx="3" ry="4" fill="white" opacity="0.4"/>
-              <ellipse cx="197" cy="136" rx="2.5" ry="3.5" fill="white" opacity="0.4"/>
-            </g>
-
-            <!-- FLUJO SAVIA animado (paths) -->
-            <g id="svg-savia-flow" aria-hidden="true">
-              <path id="savia-path-1" d="M 200 490 L 200 470 L 200 350 L 200 295 Q 200 275 185 260 Q 160 240 130 220 Q 100 200 85 185" 
-                stroke="url(#saviaGrad)" stroke-width="2" fill="none" stroke-dasharray="8 6" opacity="0"/>
-              <path id="savia-path-2" d="M 200 490 L 200 295 Q 215 275 240 255 Q 270 235 300 218 Q 325 205 340 190"
-                stroke="url(#saviaGrad)" stroke-width="2" fill="none" stroke-dasharray="8 6" opacity="0"/>
-              <path id="savia-path-3" d="M 200 295 L 200 220 L 200 148 L 200 108 L 200 78"
-                stroke="url(#saviaGrad)" stroke-width="2.5" fill="none" stroke-dasharray="10 5" opacity="0"/>
-            </g>
-
-            <!-- DEFINICIONES SVG (Gradientes) -->
-            <defs>
-              <linearGradient id="trunkGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#1a4a2a"/>
-                <stop offset="40%" stop-color="#2d7a4a"/>
-                <stop offset="60%" stop-color="#3B2677"/>
-                <stop offset="100%" stop-color="#2a1a5e"/>
-              </linearGradient>
-              <linearGradient id="canopyGrad1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#166534"/>
-                <stop offset="100%" stop-color="#14532d"/>
-              </linearGradient>
-              <linearGradient id="canopyGrad2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#15803d"/>
-                <stop offset="100%" stop-color="#166534"/>
-              </linearGradient>
-              <linearGradient id="canopyGrad3" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#16a34a"/>
-                <stop offset="100%" stop-color="#15803d"/>
-              </linearGradient>
-              <linearGradient id="canopyGrad4" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#22c55e"/>
-                <stop offset="100%" stop-color="#16a34a"/>
-              </linearGradient>
-              <linearGradient id="saviaGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#3B2677"/>
-                <stop offset="50%" stop-color="#14DC80"/>
-                <stop offset="100%" stop-color="#3B2677"/>
-              </linearGradient>
-              <filter id="glow-filter">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-          </svg>
-
-          <!-- Partículas de savia en intro -->
-          <div class="savia-particles-intro" aria-hidden="true">
-            <span class="sp sp-1"></span>
-            <span class="sp sp-2"></span>
-            <span class="sp sp-3"></span>
-            <span class="sp sp-4"></span>
-            <span class="sp sp-5"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mensaje inspirador -->
-      <p class="intro-message" aria-live="polite">
-        La inteligencia que fluye contigo.
-      </p>
-
-      <!-- CTA principal -->
-      <button id="btn-explore" class="btn-primary" aria-label="Explorar el ecosistema SAVIA">
-        <span class="btn-text">Explorar el Ecosistema</span>
-        <span class="btn-arrow" aria-hidden="true">→</span>
-        <div class="btn-glow" aria-hidden="true"></div>
-      </button>
-
-      <!-- Indicadores scroll subtle -->
-      <div class="scroll-hint" aria-hidden="true">
-        <div class="scroll-dot"></div>
-        <div class="scroll-dot"></div>
-        <div class="scroll-dot"></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       PANTALLA 2: EXPLORACIÓN INTERACTIVA
-  ═══════════════════════════════════════════ -->
-  <section id="screen-explore" class="screen" role="main" aria-label="Exploración interactiva del árbol SAVIA">
-
-    <div class="bg-grid" aria-hidden="true"></div>
-
-    <!-- Header de exploración -->
-    <header class="explore-header" role="banner">
-      <button id="btn-back" class="btn-back" aria-label="Volver al inicio">
-        <span aria-hidden="true">←</span> SAVIA
-      </button>
-      <div class="header-center">
-        <span class="header-title">Ecosistema Interactivo</span>
-        <span class="header-subtitle">Haz clic en cada parte del árbol</span>
-      </div>
-      <div class="header-actions">
-        <button id="btn-flow-mode" class="btn-secondary" aria-label="Activar modo flujo de savia">
-          <span class="btn-icon" aria-hidden="true">⟳</span>
-          Descubre el flujo
-        </button>
-        <button id="btn-fullscreen" class="btn-icon-only" aria-label="Pantalla completa" title="Pantalla completa">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-          </svg>
-        </button>
-      </div>
-    </header>
-
-    <!-- Layout principal de exploración -->
-    <div class="explore-layout">
-
-      <!-- Panel izquierdo: info del árbol -->
-      <aside class="sidebar-left" role="complementary" aria-label="Guía de exploración">
-        <div class="sidebar-card">
-          <h3 class="sidebar-title">Partes del Ecosistema</h3>
-          <ul class="parts-list" role="list">
-            <li class="part-item" data-part="roots" role="button" tabindex="0" aria-label="Explorar Raíces - Gobierno">
-              <span class="part-icon" aria-hidden="true">🌱</span>
-              <div>
-                <strong>Raíces</strong>
-                <small>Gobierno</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-            <li class="part-item" data-part="trunk" role="button" tabindex="0" aria-label="Explorar Tronco - Herramientas y Áreas VTI">
-              <span class="part-icon" aria-hidden="true">🪵</span>
-              <div>
-                <strong>Tronco</strong>
-                <small>Herramientas + Áreas VTI</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-            <li class="part-item" data-part="branches" role="button" tabindex="0" aria-label="Explorar Ramas - Hubs y áreas de negocio">
-              <span class="part-icon" aria-hidden="true">🌿</span>
-              <div>
-                <strong>Ramas</strong>
-                <small>Hubs y áreas de negocio</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-            <li class="part-item" data-part="leaves" role="button" tabindex="0" aria-label="Explorar Hojas - Datos">
-              <span class="part-icon" aria-hidden="true">🍃</span>
-              <div>
-                <strong>Hojas</strong>
-                <small>Datos</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-            <li class="part-item" data-part="flowers" role="button" tabindex="0" aria-label="Explorar Flores - Soluciones digitales">
-              <span class="part-icon" aria-hidden="true">🌸</span>
-              <div>
-                <strong>Flores</strong>
-                <small>Soluciones digitales</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-            <li class="part-item" data-part="fruits" role="button" tabindex="0" aria-label="Explorar Frutos - Decisiones basadas en datos">
-              <span class="part-icon" aria-hidden="true">🍊</span>
-              <div>
-                <strong>Frutos</strong>
-                <small>Decisiones basadas en datos</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-            <li class="part-item part-savia" data-part="savia" role="button" tabindex="0" aria-label="Explorar la Savia - Analítica e IA">
-              <span class="part-icon" aria-hidden="true">✨</span>
-              <div>
-                <strong>Savia</strong>
-                <small>Analítica · IA</small>
-              </div>
-              <span class="part-arrow" aria-hidden="true">›</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Progreso de exploración -->
-        <div class="progress-card" aria-label="Progreso de exploración">
-          <div class="progress-header">
-            <span>Explorado</span>
-            <span id="progress-count" aria-live="polite">0 / 7</span>
-          </div>
-          <div class="progress-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="7" aria-label="Progreso de exploración">
-            <div id="progress-bar" class="progress-bar-fill"></div>
-          </div>
-          <p class="progress-hint">Descubre cada parte para desbloquear el reto final</p>
-        </div>
-      </aside>
-
-      <!-- Centro: Árbol interactivo -->
-      <main class="tree-stage" role="main" aria-label="Árbol interactivo SAVIA">
-
-        <!-- Contenedor del árbol con overlay SVG -->
-        <div class="tree-container" id="tree-container">
-
-          <!-- ===================================
-               ÁRBOL PRINCIPAL SAVIA
-               (SVG inline completo - representación
-               fiel del árbol oficial del documento)
-          =================================== -->
-          <svg id="main-tree-svg" viewBox="0 0 500 650" xmlns="http://www.w3.org/2000/svg"
-               role="img" aria-label="Árbol oficial del Ecosistema SAVIA de Ecopetrol"
-               class="main-tree">
-
-            <defs>
-              <!-- Gradientes árbol principal -->
-              <linearGradient id="main-trunkGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#14532d"/>
-                <stop offset="35%" stop-color="#166534"/>
-                <stop offset="55%" stop-color="#3B2677"/>
-                <stop offset="100%" stop-color="#2a1a5e"/>
-              </linearGradient>
-              <linearGradient id="main-canopy1" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#1a6b3c"/>
-                <stop
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="SAVIA – Ecosistema de Analítica e Inteligencia Artificial de Ecopetrol"/>
+<title>SAVIA · Ecosistema Ecopetrol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════
+   VARIABLES Y RESET GLOBAL
+═══════════════════════════════════════ */
+:root {
+  --green: #14DC80;
+  --purple: #3B2677;
+  --green-dark: #0fbb6e;
+  --green-light: #7fffc4;
+  --purple-light: #6d4ec4;
+  --purple-dark: #1e1040;
+  --bg: #06050f;
+  --bg2: #0c0a1f;
+  --text: #e8f5ee;
+  --text-muted: rgba(232,245,238,0.55);
+  --card-bg: rgba(20,15,45,0.85);
+  --card-border: rgba(20,220,128,0.18);
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  --glow-green: 0 0 24px rgba(20,220,128,0.45), 0 0 48px rgba(20,220,128,0.2);
+  --glow-purple: 0 0 24px rgba(59,38,119,0.7), 0 0 48px rgba(59,38,119,0.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-main);
+  background:var(--bg);
+  color:var(--text);
+  overflow:hidden;
+  height:100vh;
+  width:100vw;
+  position:relative;
+}
+button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
+ul{list-style:none}
+/* ═══════════════════════════════════════
+   PANTALLAS
+═══════════════════════════════════════ */
+.screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.6s ease, transform 0.6s ease;
+  transform:translateY(20px);
+  z-index:10;
+  overflow:hidden;
+}
+.screen.active{
+  opacity:1;
+  pointer-events:all;
+  transform:translateY(0);
+  z-index:20;
+}
+/* ═══════════════════════════════════════
+   FONDO ANIMADO
+═══════════════════════════════════════ */
+#bg-canvas{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+.bg-lines{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(20,220,128,0.03) 0px,
+      rgba(20,220,128,0.03) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+}
+/* ═══════════════════════════════════════
+   PANTALLA INTRO
+═══════════════════════════════════════ */
+#screen-intro{
+  z-index:10;
+  background:radial-gradient(ellipse at 50% 60%, rgba(59,38,119,0.35) 0%, rgba(6,5,15,0) 70%);
+}
+.intro-inner{
+  position:relative;
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.6rem;
+  padding:2rem;
+  text-align:center;
+}
+.ecopetrol-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  background:rgba(59,38,119,0.35);
+  border:1px solid rgba(20,220,128,0.25);
+  border-radius:100px;
+  padding:0.4rem 1.1rem;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--green);
+}
+.badge-pulse{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--green);
+  animation:pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.5;transform:scale(1.4)}
+}
+/* Logo SAVIA */
+.savia-logo{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.savia-word{
+  font-family:var(--font-display);
+  font-size:clamp(5rem,12vw,9rem);
+  font-weight:700;
+  letter-spacing:0.15em;
+  background:linear-gradient(135deg, var(--green) 0%, #7fffc4 40%, var(--purple-light) 70%, var(--green) 100%);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:grad-shift 5s ease infinite;
+  filter:drop-shadow(0 0 30px rgba(20,220,128,0.4));
+}
+@keyframes grad-shift{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+.savia-tagline-under{
+  font-size:0.75rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-top:-0.5rem;
+}
+/* SVG Árbol intro */
+.intro-tree-wrap{
+  position:relative;
+  width:min(320px, 60vw);
+  height:min(380px, 55vw);
+  filter:drop-shadow(0 0 40px rgba(20,220,128,0.3));
+  animation:float-tree 6s ease-in-out infinite;
+}
+@keyframes float-tree{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+.intro-tagline{
+  font-size:clamp(0.9rem,2.2vw,1.1rem);
+  color:var(--text-muted);
+  max-width:460px;
+  line-height:1.7;
+}
+.intro-tagline em{
+  color:var(--green);
+  font-style:normal;
+  font-weight:600;
+}
+.btn-explore{
+  position:relative;
+  padding:0.95rem 2.8rem;
+  border-radius:100px;
+  background:linear-gradient(135deg, var(--green) 0%, #0fbb6e 100%);
+  color:#051a0d;
+  font-family:var(--font-display);
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  transition:var(--transition);
+  overflow:hidden;
+  box-shadow:0 4px 30px rgba(20,220,128,0.4);
+}
+.btn-explore::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, var(--purple-light), var(--purple));
+  opacity:0;
+  transition:opacity 0.4s;
+}
+.btn-explore:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:var(--glow-green);
+  color:white;
+}
+.btn-explore:hover::before{opacity:1}
+.btn-explore span{position:relative;z-index:1}
+.messages-scroll{
+  display:flex;
+  gap:2rem;
+  overflow:hidden;
+  width:100%;
+  mask-image:linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+}
+.msg-item{
+  white-space:nowrap;
+  font-size:0.78rem;
+  color:var(--text-muted);
+  letter-spacing:0.08em;
+  padding:0.35rem 1rem;
+  border:1px solid rgba(20,220,128,0.12);
+  border-radius:100px;
+  animation:scroll-msgs 18s linear infinite;
+}
+@keyframes scroll-msgs{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+/* ═══════════════════════════════════════
+   PANTALLA EXPLORACIÓN
+═══════════════════════════════════════ */
+#screen-explore{
+  flex-direction:column;
+  padding:0;
+}
+.explore-header{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.85rem 1.5rem;
+  background:rgba(6,5,15,0.9);
+  border-bottom:1px solid var(--card-border);
+  backdrop-filter:blur(20px);
+  z-index:100;
+  flex-shrink:0;
+}
+.btn-back{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1rem;
+  color:var(--green);
+  transition:var(--transition);
+  letter-spacing:0.08em;
+}
+.btn-back:hover{transform:translateX(-3px);color:var(--green-light)}
+.header-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.header-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:0.95rem;
+  color:var(--text);
+  letter-spacing:0.08em;
+}
+.header-sub{
+  font-size:0.68rem;
+  color:var(--text-muted);
+  letter-spacing:0.06em;
+}
+.header-actions{
+  display:flex;
+  gap:0.7rem;
+  align-items:center;
+}
+.btn-flow{
+  padding:0.5rem 1.1rem;
+  border-radius:100px;
+  border:1px solid var(--card-border);
+  background:rgba(59,38,119,0.25);
+  color:var(--green);
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.06em;
+  transition:var(--transition);
+}
+.btn-flow:hover{
+  background:rgba(59,38,119,0.55);
+  border-color:var(--green);
+  box-shadow:var(--glow-green);
+}
+.btn-flow.active{
+  background:linear-gradient(135deg, var(--purple), var(--purple-light));
+  border-color:var(--purple-light);
+  color:white;
+}
+.btn-fs{
+  width:36px;height:36px;
+  border-radius:8px;
+  border:1px solid var(--card-border);
+  background:rgba(59,38,119,0.2);
+  color:var(--text-muted);
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);
+  font-size:0.9rem;
+}
+.btn-fs:hover{color:var(--green);border-color:var(--green)}
+/* Layout exploración */
+.explore-body{
+  display:flex;
+  flex:1;
+  overflow:hidden;
+  height:calc(100vh - 57px);
+}
+/* Sidebar */
+.sidebar{
+  width:220px;
+  flex-shrink:0;
+  background:rgba(6,5,15,0.8);
+  border-right:1px solid var(--card-border);
+  overflow-y:auto;
+  padding:1rem 0.75rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  backdrop-filter:blur(20px);
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--card-border);border-radius:3px}
+.sidebar-section-title{
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  padding:0 0.5rem;
+}
+.part-btn{
+  display:flex;
+  align-items:center;
+  gap:0.65rem;
+  width:100%;
+  padding:0.65rem 0.75rem;
+  border-radius:10px;
+  border:1px solid transparent;
+  background:rgba(255,255,255,0.03);
+  text-align:left;
+  transition:var(--transition);
+  cursor:pointer;
+}
+.part-btn:hover{
+  background:rgba(20,220,128,0.08);
+  border-color:rgba(20,220,128,0.2);
+}
+.part-btn.active{
+  background:rgba(20,220,128,0.12);
+  border-color:rgba(20,220,128,0.35);
+}
+.part-btn.explored{
+  border-color:rgba(20,220,128,0.15);
+}
+.part-btn.explored .part-name{color:var(--green)}
+.part-icon-badge{
+  width:32px;height:32px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+  background:rgba(59,38,119,0.3);
+  border:1px solid rgba(59,38,119,0.4);
+}
+.part-btn.active .part-icon-badge{
+  background:rgba(20,220,128,0.15);
+  border-color:rgba(20,220,128,0.4);
+}
+.part-info{flex:1;min-width:0}
+.part-name{
+  display:block;
+  font-size:0.78rem;
+  font-weight:600;
+  color:var(--text);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.part-sub{
+  display:block;
+  font-size:0.63rem;
+  color:var(--text-muted);
+  margin-top:0.1rem;
+}
+.part-check{
+  width:16px;height:16px;
+  border-radius:50%;
+  border:1px solid rgba(20,220,128,0.2);
+  flex-shrink:0;
+  transition:var(--transition);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.55rem;
+}
+.part-btn.explored .part-check{
+  background:var(--green);
+  border-color:var(--green);
+  color:#051a0d;
+}
+/* Progress */
+.progress-card{
+  margin-top:auto;
+  padding:0.85rem;
+  border-radius:12px;
+  background:rgba(59,38,119,0.2);
+  border:1px solid rgba(59,38,119,0.3);
+}
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  font-size:0.65rem;
+  color:var(--text-muted);
+  margin-bottom:0.5rem;
+  font-weight:600;
+  letter-spacing:0.05em;
+}
+.progress-track{
+  height:4px;
+  border-radius:100px;
+  background:rgba(255,255,255,0.06);
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  border-radius:100px;
+  background:linear-gradient(90deg, var(--purple), var(--green));
+  width:0%;
+  transition:width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.btn-challenge{
+  margin-top:0.75rem;
+  width:100%;
+  padding:0.6rem;
+  border-radius:8px;
+  background:linear-gradient(135deg, var(--green), var(--green-dark));
+  color:#051a0d;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  transition:var(--transition);
+  opacity:0.35;
+  pointer-events:none;
+}
+.btn-challenge.ready{
+  opacity:1;
+  pointer-events:all;
+}
+.btn-challenge.ready:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glow-green);
+}
+/* ═══ ÁRBOL CENTRAL ═══ */
+.tree-stage{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.tree-stage-bg{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 50% 60%, rgba(59,38,119,0.2) 0%, transparent 65%);
+  pointer-events:none;
+}
+.tree-wrap{
+  position:relative;
+  width:min(480px, 55vw);
+  height:min(580px, 75vh);
+  cursor:default;
+}
+#main-tree{
+  width:100%;
+  height:100%;
+}
+/* Hotspots sobre árbol */
+.hotspot{
+  position:absolute;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:50;
+  transition:var(--transition);
+}
+.hotspot::before{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:2px solid rgba(20,220,128,0);
+  transition:var(--transition);
+}
+.hotspot::after{
+  content:attr(data-label);
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:calc(100% + 8px);
+  background:rgba(6,5,15,0.95);
+  border:1px solid var(--card-border);
+  border-radius:8px;
+  padding:0.3rem 0.65rem;
+  font-size:0.65rem;
+  font-weight:600;
+  white-space:nowrap;
+  color:var(--green);
+  letter-spacing:0.05em;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.2s;
+  backdrop-filter:blur(10px);
+}
+.hotspot:hover::after{opacity:1}
+.hotspot:hover::before{
+  border-color:rgba(20,220,128,0.7);
+  inset:-8px;
+}
+.hotspot-inner{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(20,220,128,0.35) 0%, rgba(20,220,128,0) 70%);
+  animation:hotspot-pulse 2.5s ease infinite;
+}
+.hotspot.purple .hotspot-inner{
+  background:radial-gradient(circle, rgba(109,78,196,0.4) 0%, rgba(59,38,119,0) 70%);
+}
+@keyframes hotspot-pulse{
+  0%,100%{opacity:0.6;transform:scale(0.9)}
+  50%{opacity:1;transform:scale(1.1)}
+}
+.hotspot.active .hotspot-inner{
+  animation:none;
+  background:radial-gradient(circle, rgba(20,220,128,0.6) 0%, rgba(20,220,128,0.1) 70%);
+}
+/* ═══ PANEL INFO DERECHO ═══ */
+.info-panel{
+  width:300px;
+  flex-shrink:0;
+  background:rgba(6,5,15,0.85);
+  border-left:1px solid var(--card-border);
+  overflow-y:auto;
+  padding:1.25rem;
+  backdrop-filter:blur(20px);
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  transition:var(--transition);
+}
+.info-panel::-webkit-scrollbar{width:3px}
+.info-panel::-webkit-scrollbar-thumb{background:var(--card-border)}
+.panel-empty{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+  text-align:center;
+  gap:1rem;
+  opacity:0.5;
+}
+.panel-empty-icon{
+  font-size:2.5rem;
+  animation:float-tree 4s ease infinite;
+}
+.panel-empty p{
+  font-size:0.78rem;
+  color:var(--text-muted);
+  line-height:1.6;
+}
+.panel-content{display:none;flex-direction:column;gap:1rem}
+.panel-content.visible{display:flex}
+.panel-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  background:rgba(59,38,119,0.35);
+  border:1px solid rgba(59,38,119,0.5);
+  border-radius:100px;
+  padding:0.3rem 0.8rem;
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--purple-light);
+  width:fit-content;
+}
+.panel-title{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--text);
+  line-height:1.2;
+}
+.panel-title em{
+  color:var(--green);
+  font-style:normal;
+}
+.panel-desc{
+  font-size:0.82rem;
+  color:var(--text-muted);
+  line-height:1.75;
+}
+.panel-connections{
+  border-top:1px solid var(--card-border);
+  padding-top:0.85rem;
+}
+.panel-connections-title{
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:0.6rem;
+}
+.connection-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+}
+.conn-tag{
+  padding:0.25rem 0.6rem;
+  border-radius:100px;
+  border:1px solid rgba(20,220,128,0.2);
+  font-size:0.62rem;
+  color:var(--green);
+  font-weight:500;
+  background:rgba(20,220,128,0.06);
+  transition:var(--transition);
+}
+.conn-tag:hover{
+  background:rgba(20,220,128,0.15);
+  border-color:rgba(20,220,128,0.5);
+}
+.panel-flow-mini{
+  padding:0.85rem;
+  border-radius:12px;
+  background:rgba(59,38,119,0.15);
+  border:1px solid rgba(59,38,119,0.25);
+}
+.flow-mini-title{
+  font-size:0.6rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--purple-light);
+  margin-bottom:0.65rem;
+}
+.flow-mini-steps{
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+}
+.flow-step-mini{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  font-size:0.7rem;
+  color:var(--text-muted);
+  opacity:0.5;
+  transition:var(--transition);
+}
+.flow-step-mini.current{
+  color:var(--green);
+  opacity:1;
+}
+.flow-step-mini.current .fsd{
+  background:var(--green);
+  color:#051a0d;
+}
+.fsd{
+  width:20px;height:20px;
+  border-radius:50%;
+  background:rgba(59,38,119,0.4);
+  border:1px solid rgba(59,38,119,0.5);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.55rem;
+  font-weight:700;
+  flex-shrink:0;
+}
+.btn-minigame{
+  width:100%;
+  padding:0.8rem;
+  border-radius:10px;
+  background:linear-gradient(135deg, var(--green), var(--green-dark));
+  color:#051a0d;
+  font-family:var(--font-display);
+  font-size:0.82rem;
+  font-weight:700;
+  letter-spacing:0.04em;
+  transition:var(--transition);
+  text-align:center;
+  border:none;
+}
+.btn-minigame:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glow-green);
+}
+/* Savia flow overlay */
+.savia-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:40;
+}
+/* ═══════════════════════════════════════
+   PANTALLA MINIJUEGO
+═══════════════════════════════════════ */
+#screen-minigame{
+  background:rgba(6,5,15,0.98);
+  z-index:30;
+  padding:0;
+}
+.mg-header{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.85rem 1.5rem;
+  background:rgba(12,10,31,0.95);
+  border-bottom:1px solid var(--card-border);
+  flex-shrink:0;
+}
+.mg-title-wrap{display:flex;flex-direction:column}
+.mg-eyebrow{
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--green);
+}
+.mg-title{
+  font-family:var(--font-display);
+  font-size:1rem;
+  font-weight:700;
+  color:var(--text);
+}
+.btn-mg-back{
+  padding:0.5rem 1rem;
+  border-radius:8px;
+  border:1px solid var(--card-border);
+  background:transparent;
+  color:var(--text-muted);
+  font-size:0.75rem;
+  transition:var(--transition);
+}
+.btn-mg-back:hover{color:var(--green);border-color:var(--green)}
+.mg-body{
+  flex:1;
+  overflow:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.
